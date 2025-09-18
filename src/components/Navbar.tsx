@@ -1,0 +1,105 @@
+import { cn } from "@/libs/utils";
+import { Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const navItems = [
+  { name: "Home", href: "#hero" },
+  { name: "About", href: "#about" },
+  { name: "Projects", href: "#projects" },
+  { name: "Contact", href: "#contact" },
+];
+
+const Navbar = () => {
+  const [isSrolledDown, setIsScrolledDown] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolledDown(window.screenY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
+  return (
+    <nav
+      className={cn(
+        "p-10",
+        isSrolledDown ? "bg-background/80 shadow-xs" : "bg-background",
+      )}
+    >
+      <div
+        className={cn(
+          "text-xl font-bold text-primary",
+          "flex flex-row justify-between items-center",
+        )}
+      >
+        {/* logo */}
+        <a
+          href="#hero"
+          className={cn("hover:scale-110", "transition-all duration-300")}
+        >
+          <span className="text-foreground">My</span>
+          Porfolio
+        </a>
+
+        {/* desktop nav */}
+        <div className={cn("hidden", "md:flex space-x-8 text-lg")}>
+          {navItems.map((item, key) => (
+            <a
+              key={key}
+              href={item.href}
+              className={cn(
+                "font-normal text-foreground",
+                "hover:text-primary hover:scale-110",
+                "transition-all duration-300",
+              )}
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+
+        {/* mobile menu */}
+        <button
+          className={cn("md:hidden", "text-foreground z-10")}
+          onClick={toggleMenu}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* mobile nav */}
+        <div
+          className={cn(
+            "md:hidden",
+            isMenuOpen
+              ? "flex flex-col gap-5 justify-center items-center"
+              : "hidden",
+            "fixed inset-0 text-lg w-full bg-background/80",
+            "transition-all duration-300",
+          )}
+        >
+          {navItems.map((item, key) => (
+            <a
+              key={key}
+              href={item.href}
+              className={cn(
+                "font-normal text-foreground",
+                "hover:text-primary hover:scale-110",
+                "transition-all duration-300",
+              )}
+            >
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export { Navbar };
