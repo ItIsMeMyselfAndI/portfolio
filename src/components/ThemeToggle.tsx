@@ -1,3 +1,5 @@
+import { cn } from "@/libs/utils";
+import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const ThemeToggle = () => {
@@ -25,9 +27,19 @@ const ThemeToggle = () => {
   }, []);
 
   return (
-    <button className="bg-background" onClick={toggleTheme}>
-      click me boii
-      {isDarkTheme ? "dark" : "light"}
+    <button
+      className={cn(
+        "bg-background flex items-center rounded-full p-1",
+        "hover:scale-120 hover:shadow-2xl",
+        "transition-all duration-300",
+      )}
+      onClick={toggleTheme}
+    >
+      {isDarkTheme ? (
+        <Moon size={24} className="text-secondary" />
+      ) : (
+        <Sun size={24} className="text-secondary" />
+      )}
     </button>
   );
 };

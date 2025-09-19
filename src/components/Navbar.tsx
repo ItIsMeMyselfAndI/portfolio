@@ -1,6 +1,7 @@
 import { cn } from "@/libs/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -28,7 +29,7 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "p-10",
+        "p-5 sm:p-10 h-auto",
         isSrolledDown ? "bg-background/80 shadow-xs" : "bg-background",
       )}
     >
@@ -46,6 +47,10 @@ const Navbar = () => {
           <span className="text-foreground">My</span>
           Porfolio
         </a>
+
+        <div className="ml-auto pr-8">
+          <ThemeToggle />
+        </div>
 
         {/* desktop nav */}
         <div className={cn("hidden", "md:flex space-x-8 text-lg")}>
@@ -79,7 +84,7 @@ const Navbar = () => {
             isMenuOpen
               ? "flex flex-col gap-5 justify-center items-center"
               : "hidden",
-            "fixed inset-0 text-lg w-full bg-background/80",
+            "fixed inset-0 z-10 text-lg w-full bg-background/80",
             "transition-all duration-300",
           )}
         >
@@ -87,6 +92,7 @@ const Navbar = () => {
             <a
               key={key}
               href={item.href}
+              onClick={toggleMenu}
               className={cn(
                 "font-normal text-foreground",
                 "hover:text-primary hover:scale-110",
