@@ -23,7 +23,12 @@ const AboutSection = () => {
       <div className="h-full flex flex-wrap items-center justify-center gap-4 md:gap-6">
         {/* information */}
         <div className="flex-1 min-w-60 flex flex-col items-center justify-center gap-4 md:gap-6">
-          <Card className="flex-1 p-4 md:p-6">
+          <Card
+            className={cn(
+              "flex-1 p-4 md:p-6",
+              "hover:translate-[-0.3em] transition-all duration-300",
+            )}
+          >
             <CardDescription className="text-sm md:text-lg">
               Hello! I'm <span className="text-secondary">Eger</span>, a{" "}
               <span className="text-primary">dedicated student</span> currently
@@ -39,7 +44,12 @@ const AboutSection = () => {
               <span className="text-yellow-500">high quality</span>.
             </CardDescription>
           </Card>
-          <Card className="flex-1 p-4 md:p-6">
+          <Card
+            className={cn(
+              "flex-1 p-4 md:p-6",
+              "hover:translate-[-0.3em] transition-all duration-300",
+            )}
+          >
             <CardDescription className="text-sm md:text-lg">
               <span>
                 I thrive on{" "}
@@ -69,7 +79,12 @@ const AboutSection = () => {
 
         {/* technologies */}
         <div className="flex-1 min-w-60 flex flex-col items-center justify-center gap-4 md:gap-6">
-          <Card className="flex-1 w-full p-4 md:p-6">
+          <Card
+            className={cn(
+              "flex-1 w-full p-4 md:p-6",
+              "hover:translate-[-0.3em] transition-all duration-300",
+            )}
+          >
             <CardDescription className="text-sm md:text-lg flex gap-4">
               <FaPenNib size={24} />
               <p>
@@ -80,7 +95,12 @@ const AboutSection = () => {
               </p>
             </CardDescription>
           </Card>
-          <Card className="flex-1 w-full p-4 md:p-6">
+          <Card
+            className={cn(
+              "flex-1 w-full p-4 md:p-6",
+              "hover:translate-[-0.3em] transition-all duration-300",
+            )}
+          >
             <CardDescription className="text-sm md:text-lg flex gap-4">
               <FaTools size={24} />
               <p>
@@ -94,7 +114,12 @@ const AboutSection = () => {
               </p>
             </CardDescription>
           </Card>
-          <Card className="flex-1 w-full p-4 md:p-6">
+          <Card
+            className={cn(
+              "flex-1 w-full p-4 md:p-6",
+              "hover:translate-[-0.3em] transition-all duration-300",
+            )}
+          >
             <CardDescription className="text-sm md:text-lg flex gap-4">
               <MdInterests size={24} />
               <p>
@@ -107,7 +132,6 @@ const AboutSection = () => {
         </div>
       </div>
 
-      {/* scroll */}
       <a
         href="#projects"
         className={cn(
