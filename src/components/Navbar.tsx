@@ -16,7 +16,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolledDown(window.screenY > 10);
+      setIsScrolledDown(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "p-5 sm:p-10 h-auto",
+        "sticky h-auto top-0 z-100 p-5 sm:p-10 bg-background",
         isSrolledDown ? "bg-background/80 shadow-xs" : "bg-background",
       )}
     >

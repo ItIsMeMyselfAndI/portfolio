@@ -6,9 +6,9 @@ import { ProjectsSection } from "@/components/sections/ProjectsSection";
 
 const Home = () => {
   return (
-    <div className="bg-background h-screen flex flex-col">
+    <div className="bg-background min-h-screen flex flex-col">
       <Navbar />
-      <main className="h-full">
+      <main className="min-h-full gap-6">
         <HeroSection />
         <AboutSection />
         <ProjectsSection />
