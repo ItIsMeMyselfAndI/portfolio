@@ -29,80 +29,75 @@ const Navbar = () => {
   return (
     <nav
       className={cn(
-        "sticky h-auto top-0 z-100 p-5 sm:p-10 bg-background",
-        isSrolledDown ? "bg-background/80 shadow-xs" : "bg-background",
+        "fixed h-auto top-0 z-100 p-5 sm:p-10",
+        "text-xl font-bold text-primary",
+        "w-screen flex flex-row justify-between items-center",
+        isSrolledDown ? "bg-background/80 shadow-xs" : "bg-background/80",
       )}
     >
+      {/* logo */}
+      <a
+        href="#hero"
+        className={cn("hover:scale-110", "transition-all duration-300")}
+      >
+        <span className="text-foreground">My</span>
+        Porfolio
+      </a>
+
+      <div className="ml-auto pr-8">
+        <ThemeToggle />
+      </div>
+
+      {/* desktop nav */}
+      <div className={cn("hidden", "md:flex space-x-8 text-lg")}>
+        {navItems.map((item, key) => (
+          <a
+            key={key}
+            href={item.href}
+            className={cn(
+              "font-normal text-foreground",
+              "hover:text-primary hover:scale-110",
+              "transition-all duration-300",
+            )}
+          >
+            {item.name}
+          </a>
+        ))}
+      </div>
+
+      {/* mobile menu */}
+      <button
+        className={cn("md:hidden", "text-foreground z-100")}
+        onClick={toggleMenu}
+      >
+        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+
+      {/* mobile nav */}
       <div
         className={cn(
-          "text-xl font-bold text-primary",
-          "flex flex-row justify-between items-center",
+          "md:hidden",
+          isMenuOpen
+            ? "flex flex-col gap-5 justify-center items-center"
+            : "hidden",
+          "fixed inset-0 z-10 text-lg w-full bg-background/80",
+          "transition-all duration-300",
         )}
       >
-        {/* logo */}
-        <a
-          href="#hero"
-          className={cn("hover:scale-110", "transition-all duration-300")}
-        >
-          <span className="text-foreground">My</span>
-          Porfolio
-        </a>
-
-        <div className="ml-auto pr-8">
-          <ThemeToggle />
-        </div>
-
-        {/* desktop nav */}
-        <div className={cn("hidden", "md:flex space-x-8 text-lg")}>
-          {navItems.map((item, key) => (
-            <a
-              key={key}
-              href={item.href}
-              className={cn(
-                "font-normal text-foreground",
-                "hover:text-primary hover:scale-110",
-                "transition-all duration-300",
-              )}
-            >
-              {item.name}
-            </a>
-          ))}
-        </div>
-
-        {/* mobile menu */}
-        <button
-          className={cn("md:hidden", "text-foreground z-10")}
-          onClick={toggleMenu}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        {/* mobile nav */}
-        <div
-          className={cn(
-            "md:hidden",
-            isMenuOpen
-              ? "flex flex-col gap-5 justify-center items-center"
-              : "hidden",
-            "fixed inset-0 z-10 text-lg w-full bg-background/80",
-            "transition-all duration-300",
-          )}
-        >
-          {navItems.map((item, key) => (
-            <a
-              key={key}
-              href={item.href}
-              onClick={toggleMenu}
-              className={cn(
-                "font-normal text-foreground",
-                "hover:text-primary hover:scale-110",
-                "transition-all duration-300",
-              )}
-            >
-              {item.name}
-            </a>
-          ))}
-        </div>
+        {navItems.map((item, key) => (
+          <a
+            key={key}
+            href={item.href}
+            onClick={toggleMenu}
+            className={cn(
+              "font-normal text-foreground",
+              "hover:text-primary hover:scale-110",
+              "transition-all duration-300",
+            )}
+          >
+            {item.name}
+          </a>
+        ))}
       </div>
     </nav>
   );
