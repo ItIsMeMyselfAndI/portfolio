@@ -9,13 +9,13 @@ const ThemeToggle = () => {
   // toggle theme
   const toggleTheme = () => {
     if (isDarkTheme) {
+      setIsDarkTheme(false);
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
-      setIsDarkTheme(false);
     } else {
+      setIsDarkTheme(true);
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
-      setIsDarkTheme(true);
     }
   };
 
@@ -29,8 +29,8 @@ const ThemeToggle = () => {
 
   return (
     <div className="flex items-center space-x-2">
-      <Switch id="airplane-mode" onClick={toggleTheme} />
-      <Label htmlFor="airplane-mode">
+      <Switch id="theme" checked={isDarkTheme} onClick={toggleTheme} />
+      <Label htmlFor="theme">
         {isDarkTheme ? (
           <Moon size={24} className="text-primary" />
         ) : (
