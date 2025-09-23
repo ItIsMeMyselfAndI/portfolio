@@ -2,9 +2,9 @@ import { cn } from "@/libs/utils";
 import { FaSquareGithub } from "react-icons/fa6";
 import { IoLogoLinkedin } from "react-icons/io5";
 import { FaFacebookSquare } from "react-icons/fa";
-import SilhoutteIcon from "@/assets/silhouette-maleakimbo.svg?react";
 import { ArrowDown } from "lucide-react";
 import { useEffect, useState } from "react";
+import { SilhouetteIcon } from "@/assets/SilhouetteIcon";
 
 const HeroSection = () => {
   const [navHeight, setNavHeight] = useState(0);
@@ -114,7 +114,7 @@ const HeroSection = () => {
                 "flex justify-center mt-6 md:mt-0",
               )}
             >
-              <SilhoutteIcon className="text-primary h-full translate-x-[-20%] scale-120" />
+              <SilhouetteIcon className="text-primary h-full -translate-x-[20%] scale-120" />
             </div>
           </div>
         </div>
