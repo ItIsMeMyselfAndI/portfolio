@@ -25,11 +25,14 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className={cn("px-6 sm:px-10 md:px-20 lg:px-30", "h-screen min-h-screen")}
+      className={cn("h-screen min-h-screen")}
       style={{ paddingTop: `${navHeight}px` }}
     >
       <div
-        className={cn("h-full", "flex flex-col items-center justify-evenly")}
+        className={cn(
+          "h-full p-6 sm:p-8 md:p-10",
+          "flex flex-col items-center justify-evenly",
+        )}
       >
         <div
           className={cn(
