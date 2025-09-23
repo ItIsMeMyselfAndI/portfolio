@@ -18,13 +18,19 @@ import { useEffect, useState } from "react";
 import { ArrowDown, ExternalLink, Github } from "lucide-react";
 import { motion } from "framer-motion";
 
+import TaskTrackerCLIPNG from "/projects/task-tracker-cli.png";
+import BLDSolverCLIPNG from "/projects/3x3-bld-solver.png";
+import FinanceTrackerPNG from "/projects/finance-tracker.png";
+import HelpDeskTicketingPNG from "/projects/help-desk-ticketing.png";
+import PortfolioPNG from "/projects/porfolio.png";
+
 const projects = [
   {
     id: 0,
     title: "Task Tracker CLI",
     description:
       "A CLI-based tool that to what you need to do, what you have done, and what you are currently working on.",
-    image: "public/projects/task-tracker-cli.png",
+    image: TaskTrackerCLIPNG,
     tags: ["Python", "CLI"],
     demoUrl: "#",
     githubUrl: "https://github.com/ItIsMeMyselfAndI/task-tracker-cli.git",
@@ -34,7 +40,7 @@ const projects = [
     title: "3x3 BLD Solution Generator CLI",
     description:
       "A CLI-based 3x3 rubicks cube solution generator script that utilizes M2 algorithm for edges and Old Pochman algorithm for conrners.",
-    image: "public/projects/3x3-bld-solver.png",
+    image: BLDSolverCLIPNG,
     tags: ["Python", "NumPy", "CLI"],
     demoUrl: "#",
     githubUrl:
@@ -45,7 +51,7 @@ const projects = [
     title: "Finance Tracker",
     description:
       "An offline desktop-based application designed for students to monitor their daily spending habits, budget allocation, and overall financial health.",
-    image: "public/projects/finance-tracker.png",
+    image: FinanceTrackerPNG,
     tags: ["Python", "Tkinter", "SQLite", "Pyinstaller"],
     demoUrl: "#",
     githubUrl: "https://github.com/ItIsMeMyselfAndI/finance-tracker.git",
@@ -55,10 +61,11 @@ const projects = [
     title: "Help Desk Ticketing",
     description:
       "A web-based ticketing system that allows users to report issues and help support teams track, manage, and resolve them efficiently.",
-    image: "public/projects/help-desk-ticketing.png",
+    image: HelpDeskTicketingPNG,
     tags: [
       "React",
       "Tailwindcss",
+      "CSS",
       "Python",
       "PostgreSQL",
       "SQLAlchemy",
@@ -67,6 +74,15 @@ const projects = [
     demoUrl: "https://help-desk-ticketing-system-ashen.vercel.app",
     githubUrl:
       "https://github.com/ItIsMeMyselfAndI/help-desk-ticketing-system.git",
+  },
+  {
+    id: 5,
+    title: "Portfolio",
+    description: "",
+    image: PortfolioPNG,
+    tags: ["React", "Tailwindcss", "CSS"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/ItIsMeMyselfAndI/portfolio.git",
   },
 ];
 
