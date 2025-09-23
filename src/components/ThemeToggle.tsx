@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 
 const ThemeToggle = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   // toggle theme
   const toggleTheme = () => {
