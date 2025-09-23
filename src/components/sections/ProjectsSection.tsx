@@ -78,10 +78,10 @@ const projects = [
   {
     id: 5,
     title: "Portfolio",
-    description: "",
+    description: "An interactive website showcasing the projects I've built.",
     image: PortfolioPNG,
     tags: ["React", "Tailwindcss", "CSS"],
-    demoUrl: "#",
+    demoUrl: "https://portfolio-itismemyselfandis-projects.vercel.app",
     githubUrl: "https://github.com/ItIsMeMyselfAndI/portfolio.git",
   },
 ];
