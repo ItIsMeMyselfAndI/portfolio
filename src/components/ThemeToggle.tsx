@@ -1,6 +1,7 @@
-import { cn } from "@/libs/utils";
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 
 const ThemeToggle = () => {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
@@ -27,20 +28,16 @@ const ThemeToggle = () => {
   }, []);
 
   return (
-    <button
-      className={cn(
-        "bg-background flex items-center rounded-full p-1",
-        "hover:scale-120 hover:shadow-2xl",
-        "transition-all duration-300",
-      )}
-      onClick={toggleTheme}
-    >
-      {isDarkTheme ? (
-        <Moon size={24} className="text-secondary" />
-      ) : (
-        <Sun size={24} className="text-secondary" />
-      )}
-    </button>
+    <div className="flex items-center space-x-2">
+      <Switch id="airplane-mode" onClick={toggleTheme} />
+      <Label htmlFor="airplane-mode">
+        {isDarkTheme ? (
+          <Moon size={24} className="text-primary" />
+        ) : (
+          <Sun size={24} className="text-secondary" />
+        )}
+      </Label>
+    </div>
   );
 };
 
