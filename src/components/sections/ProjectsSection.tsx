@@ -18,73 +18,17 @@ import { useEffect, useState } from "react";
 import { ArrowDown, ExternalLink, Github } from "lucide-react";
 import { motion } from "framer-motion";
 
-import TaskTrackerCLIPNG from "/projects/task-tracker-cli.png";
-import BLDSolverCLIPNG from "/projects/3x3-bld-solver.png";
-import FinanceTrackerPNG from "/projects/finance-tracker.png";
-import HelpDeskTicketingPNG from "/projects/help-desk-ticketing.png";
-import PortfolioPNG from "/projects/porfolio.png";
-
-const projects = [
-  {
-    id: 0,
-    title: "Task Tracker CLI",
-    description:
-      "A CLI-based tool that to what you need to do, what you have done, and what you are currently working on.",
-    image: TaskTrackerCLIPNG,
-    tags: ["Python", "CLI"],
-    demoUrl: "#",
-    githubUrl: "https://github.com/ItIsMeMyselfAndI/task-tracker-cli.git",
-  },
-  {
-    id: 2,
-    title: "3x3 BLD Solution Generator CLI",
-    description:
-      "A CLI-based 3x3 rubicks cube solution generator script that utilizes M2 algorithm for edges and Old Pochman algorithm for conrners.",
-    image: BLDSolverCLIPNG,
-    tags: ["Python", "NumPy", "CLI"],
-    demoUrl: "#",
-    githubUrl:
-      "https://github.com/ItIsMeMyselfAndI/3x3-bld-solution-generator-cli.git",
-  },
-  {
-    id: 3,
-    title: "Finance Tracker",
-    description:
-      "An offline desktop-based application designed for students to monitor their daily spending habits, budget allocation, and overall financial health.",
-    image: FinanceTrackerPNG,
-    tags: ["Python", "Tkinter", "SQLite", "Pyinstaller"],
-    demoUrl: "#",
-    githubUrl: "https://github.com/ItIsMeMyselfAndI/finance-tracker.git",
-  },
-  {
-    id: 4,
-    title: "Help Desk Ticketing",
-    description:
-      "A web-based ticketing system that allows users to report issues and help support teams track, manage, and resolve them efficiently.",
-    image: HelpDeskTicketingPNG,
-    tags: [
-      "React",
-      "Tailwindcss",
-      "CSS",
-      "Python",
-      "PostgreSQL",
-      "SQLAlchemy",
-      "FastAPI",
-    ],
-    demoUrl: "https://help-desk-ticketing-system-ashen.vercel.app",
-    githubUrl:
-      "https://github.com/ItIsMeMyselfAndI/help-desk-ticketing-system.git",
-  },
-  {
-    id: 5,
-    title: "Portfolio",
-    description: "An interactive website showcasing the projects I've built.",
-    image: PortfolioPNG,
-    tags: ["React", "Tailwindcss", "CSS"],
-    demoUrl: "https://portfolio-itismemyselfandis-projects.vercel.app",
-    githubUrl: "https://github.com/ItIsMeMyselfAndI/portfolio.git",
-  },
-];
+type ProjectType = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  demoUrl: string;
+  githubUrl: string;
+};
+import projectsData from "@/data/projects.json";
+const projects: ProjectType[] = projectsData as ProjectType[];
 
 const ProjectsSection = () => {
   const [navHeight, setNavHeight] = useState(0);
