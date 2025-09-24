@@ -37,7 +37,7 @@ const AboutSection = () => {
         )}
       >
         {/* title */}
-        <h1 className="text-2xl text-foreground font-bold">
+        <h1 className="text-lg md:text-xl lg:text-2xl text-foreground font-bold">
           About <span className="text-primary">Me</span>
         </h1>
 

@@ -40,7 +40,7 @@ const HeroSection = () => {
           )}
         >
           {/* main */}
-          <div className="flex-1 space-y-2 sm:space-y-4 md:space-y-6">
+          <div className="flex-1 space-y-4 md:space-y-6">
             {/* name */}
             <h1 className="text-sm sm:text-lg md:text-xl lg:text-2xl">
               <p className="text-muted-foreground">Hi, I am </p>
@@ -84,7 +84,7 @@ const HeroSection = () => {
               <a
                 href="#projects"
                 className={cn(
-                  "text-foreground text-sm",
+                  "text-foreground text-xs md:text-sm",
                   "px-4 py-1 bg-primary rounded-2xl",
                   "hover:cursor-pointer hover:translate-y-[-0.5em] hover:scale-110",
                   "transition-all duration-300",
@@ -95,7 +95,7 @@ const HeroSection = () => {
               <a
                 href="#contact"
                 className={cn(
-                  "text-muteed text-sm",
+                  "text-muted text-xs md:text-sm",
                   "px-4 py-1 bg-secondary rounded-2xl",
                   "hover:cursor-pointer hover:translate-y-[-0.5em] hover:scale-110",
                   "transition-all duration-300",

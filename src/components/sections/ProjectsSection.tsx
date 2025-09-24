@@ -14,8 +14,10 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+
 import { useEffect, useState } from "react";
-import { ArrowDown, ExternalLink, Github } from "lucide-react";
+import { ArrowDown, ArrowRight, ExternalLink, Github } from "lucide-react";
 import { motion } from "framer-motion";
 
 type ProjectType = {
@@ -60,7 +62,7 @@ const ProjectsSection = () => {
         )}
       >
         {/* title */}
-        <h1 className="text-2xl text-foreground font-bold">
+        <h1 className="text-lg md:text-xl lg:text-2xl text-foreground font-bold">
           Featured <span className="text-primary">Projects</span>
         </h1>
 
@@ -161,8 +163,21 @@ const ProjectsSection = () => {
           />
         </Carousel>
 
+        <Button
+          variant="default"
+          className="rounded-2xl hover:scale-110 transition-all duration-300"
+        >
+          <a
+            href="https://github.com/ItIsMeMyselfAndI"
+            className="flex flex-row gap-2 justify-center items-center text-secondary text-sm"
+          >
+            Check my github
+            <ArrowRight size={24} />
+          </a>
+        </Button>
+
         <a
-          href="#projects"
+          href="#contacts"
           className={cn(
             "flex flex-col justify-center items-center",
             "animate-bounce duration-300",
