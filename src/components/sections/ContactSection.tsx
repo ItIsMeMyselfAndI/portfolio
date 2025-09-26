@@ -1,11 +1,12 @@
 import { cn } from "@/libs/utils";
 import { useEffect, useState } from "react";
-import { Card } from "../ui/card";
 import { Mail, ThumbsUp } from "lucide-react";
 import { FaSquareGithub } from "react-icons/fa6";
 import { IoLogoLinkedin } from "react-icons/io5";
 import { FaFacebookSquare } from "react-icons/fa";
-import { Label } from "@radix-ui/react-label";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 const ContactSection = () => {
   const [navHeight, setNavHeight] = useState(0);
@@ -29,12 +30,12 @@ const ContactSection = () => {
     >
       <div
         className={cn(
-          "h-full p-6 sm:p-8 md:p-10",
-          "flex flex-col gap-4",
+          "h-full p-6 sm:p-8 md:p-10 lg:px-16",
+          "flex flex-col gap-2 md:gap-4",
           "md:flex-row",
         )}
       >
-        <div className="p-4 md:p-6 flex-2 flex flex-col justify-between bg-amber-700">
+        <div className="flex-2 md:flex-1 p-6 md:p-10 lg:p-20 flex flex-col justify-evenly">
           {/* header */}
           <div className="flex flex-col justify-between">
             <h1 className="text-lg md:text-xl lg:text-2xl text-foreground font-bold">
@@ -87,10 +88,67 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* send email */}
-        <form className="flex-3 p-4 md:p-4 bg-amber-700"></form>
+        <form className="flex-3 md:flex-1 flex flex-col gap-4 md:gap-6 p-6 md:p-10 lg:p-20">
+          {/* full name  */}
+          <div className="grid grid-cols-2 gap-2 md:gap-4">
+            <div className="flex flex-col gap-2 md:gap-4">
+              <Label
+                className="font-medium text-xs md:text-sm text-foreground"
+                htmlFor="first-name"
+              >
+                First Name
+              </Label>
+              <Input
+                id="first-name"
+                type="text"
+                className="text-xs md:text-sm rounded-none"
+              />
+            </div>
+            <div className="flex flex-col gap-2 md:gap-4">
+              <Label
+                className="font-medium text-xs md:text-sm text-foreground"
+                htmlFor="last-name"
+              >
+                Last Name
+              </Label>
+              <Input
+                id="last-name"
+                type="text"
+                className="text-xs md:text-sm rounded-none"
+              />
+            </div>
+          </div>
 
-        {/*  */}
+          {/* email */}
+          <div className="flex flex-col gap-2 md:gap-4">
+            <Label
+              className="font-medium text-xs md:text-sm text-foreground"
+              htmlFor="email"
+            >
+              Last Name
+            </Label>
+            <Input
+              id="email"
+              type="email"
+              className="text-xs md:text-sm rounded-none"
+            />
+          </div>
+
+          {/* content */}
+          <div className="flex-1 flex flex-col gap-2 md:gap-4">
+            <Label
+              className="font-medium text-xs md:text-sm text-foreground"
+              htmlFor="content"
+            >
+              Message
+            </Label>
+            <Textarea
+              id="content"
+              placeholder="Type your message hear"
+              className="flex-1 text-xs md:text-sm rounded-none"
+            />
+          </div>
+        </form>
       </div>
     </section>
   );

@@ -30,7 +30,7 @@ const HeroSection = () => {
     >
       <div
         className={cn(
-          "h-full p-6 sm:p-8 md:p-10",
+          "h-full p-6 sm:p-8 md:p-10 lg:px-16",
           "flex flex-col items-center justify-evenly",
         )}
       >
