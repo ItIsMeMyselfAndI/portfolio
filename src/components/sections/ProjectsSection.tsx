@@ -58,7 +58,8 @@ const ProjectsSection = () => {
       <div
         className={cn(
           "h-full p-6 sm:p-8 md:p-10 lg:px-16",
-          "flex flex-col items-center justify-between",
+          "flex flex-col gap-2 md:gap-4",
+          "justify-center items-center",
         )}
       >
         {/* title */}
@@ -132,8 +133,12 @@ const ProjectsSection = () => {
                         transition={{ duration: 0.3 }}
                         className="flex flex-wrap gap-2 overflow-hidden"
                       >
-                        {project.tags.map((tag) => (
-                          <Badge variant="secondary" className="rounded-2xl">
+                        {project.tags.map((tag, key) => (
+                          <Badge
+                            key={key}
+                            variant="secondary"
+                            className="rounded-2xl"
+                          >
                             {tag}
                           </Badge>
                         ))}

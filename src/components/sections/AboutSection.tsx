@@ -33,7 +33,8 @@ const AboutSection = () => {
       <div
         className={cn(
           "h-full p-6 sm:p-8 md:p-10 lg:px-16",
-          "flex flex-col items-center justify-between",
+          "flex flex-col gap-2 md:gap-4",
+          "justify-center items-center",
         )}
       >
         {/* title */}

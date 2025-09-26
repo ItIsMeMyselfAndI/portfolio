@@ -1,5 +1,5 @@
 import { cn } from "@/libs/utils";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { Mail, ThumbsUp } from "lucide-react";
 import { FaSquareGithub } from "react-icons/fa6";
 import { IoLogoLinkedin } from "react-icons/io5";
@@ -7,9 +7,16 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import emailjs from "@emailjs/browser";
 
 const ContactSection = () => {
   const [navHeight, setNavHeight] = useState(0);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const date = new Date();
 
   useEffect(() => {
     const handleResize = () => {
@@ -22,6 +29,45 @@ const ContactSection = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const serviceID = import.meta.env.VITE_SERVICE_ID;
+    const templateID = import.meta.env.VITE_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_PUBLIC_KEY;
+
+    const templateParams = {
+      title: "I'm interested in your Porfolio",
+      time: date.toISOString(),
+      fromName:
+        firstName[0].toUpperCase() +
+        firstName.slice(1) +
+        " " +
+        lastName[0].toUpperCase() +
+        lastName.slice(1),
+      fromEmail: email,
+      message: message,
+    };
+
+    if (serviceID && templateID && publicKey) {
+      emailjs
+        .send(serviceID, templateID, templateParams, publicKey)
+        .then((response) => {
+          console.log("Email has been sent", response);
+          setFirstName("");
+          setLastName("");
+          setEmail("");
+          setMessage("");
+          window.alert("Email has been sent!");
+        })
+        .catch((error) => {
+          console.error("Error in sending email", error);
+        });
+    } else {
+      console.error("Error: EmailJS env variables are missing!");
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -32,16 +78,16 @@ const ContactSection = () => {
         className={cn(
           "h-full p-6 sm:p-8 md:p-10 lg:px-16",
           "flex flex-col gap-2 md:gap-4",
-          "md:flex-row",
+          "md:flex-row justify-center items-center",
         )}
       >
-        <div className="flex-2 md:flex-1 p-6 md:p-10 lg:p-20 flex flex-col justify-evenly">
+        <div className="flex-2 md:flex-1 p-6 md:p-10 lg:p-20 flex flex-col justify-evenly gap-6 md:gap-10">
           {/* header */}
           <div className="flex flex-col justify-between">
             <h1 className="text-lg md:text-xl lg:text-2xl text-foreground font-bold">
               Get in <span className="text-secondary">Touch</span>
             </h1>
-            <p className="text-xs md:text-sm lg:text-lg text-foreground max-w-[70%]">
+            <p className="text-xs md:text-sm lg:text-lg text-foreground md:max-w-[70%]">
               Have a project in mind or want to collaborate? Feel free to reach
               out.
             </p>
@@ -88,7 +134,10 @@ const ContactSection = () => {
           </div>
         </div>
 
-        <form className="flex-3 md:flex-1 flex flex-col gap-4 md:gap-6 p-6 md:p-10 lg:p-20">
+        <form
+          className="flex-3 md:flex-1 flex flex-col gap-4 md:gap-6 p-6 md:p-10 lg:p-20"
+          onSubmit={handleSubmit}
+        >
           {/* full name  */}
           <div className="grid grid-cols-2 gap-2 md:gap-4">
             <div className="flex flex-col gap-2 md:gap-4">
@@ -101,6 +150,8 @@ const ContactSection = () => {
               <Input
                 id="first-name"
                 type="text"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
                 className="text-xs md:text-sm rounded-none"
               />
             </div>
@@ -114,6 +165,8 @@ const ContactSection = () => {
               <Input
                 id="last-name"
                 type="text"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
                 className="text-xs md:text-sm rounded-none"
               />
             </div>
@@ -125,11 +178,13 @@ const ContactSection = () => {
               className="font-medium text-xs md:text-sm text-foreground"
               htmlFor="email"
             >
-              Last Name
+              Email
             </Label>
             <Input
               id="email"
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="text-xs md:text-sm rounded-none"
             />
           </div>
@@ -138,15 +193,28 @@ const ContactSection = () => {
           <div className="flex-1 flex flex-col gap-2 md:gap-4">
             <Label
               className="font-medium text-xs md:text-sm text-foreground"
-              htmlFor="content"
+              htmlFor="message"
             >
               Message
             </Label>
             <Textarea
-              id="content"
+              id="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               placeholder="Type your message hear"
               className="flex-1 text-xs md:text-sm rounded-none"
             />
+          </div>
+
+          {/* content */}
+          <div className="flex justify-end">
+            <Button
+              variant="secondary"
+              type="submit"
+              className="text-xs md:text-sm text-muted"
+            >
+              Send
+            </Button>
           </div>
         </form>
       </div>
