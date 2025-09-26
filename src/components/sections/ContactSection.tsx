@@ -152,7 +152,7 @@ const ContactSection = () => {
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="text-xs md:text-sm rounded-none"
+                className="text-foreground text-xs md:text-sm rounded-none"
               />
             </div>
             <div className="flex flex-col gap-2 md:gap-4">
@@ -167,7 +167,7 @@ const ContactSection = () => {
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="text-xs md:text-sm rounded-none"
+                className="text-foreground text-xs md:text-sm rounded-none"
               />
             </div>
           </div>
@@ -185,7 +185,7 @@ const ContactSection = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="text-xs md:text-sm rounded-none"
+              className="text-foreground text-xs md:text-sm rounded-none"
             />
           </div>
 
@@ -202,7 +202,7 @@ const ContactSection = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Type your message hear"
-              className="flex-1 text-xs md:text-sm rounded-none"
+              className="text-foreground flex-1 text-xs md:text-sm rounded-none"
             />
           </div>
 
