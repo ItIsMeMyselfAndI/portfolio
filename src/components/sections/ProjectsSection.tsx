@@ -177,7 +177,7 @@ const ProjectsSection = () => {
         </Button>
 
         <a
-          href="#contacts"
+          href="#contact"
           className={cn(
             "flex flex-col justify-center items-center",
             "animate-bounce duration-300",
