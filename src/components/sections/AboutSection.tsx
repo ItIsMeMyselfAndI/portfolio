@@ -7,6 +7,12 @@ import { MdInterests } from "react-icons/md";
 import { ImDatabase } from "react-icons/im";
 import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionContent,
+  AccordionTrigger,
+} from "../ui/accordion";
 
 const AboutSection = () => {
   const [navHeight, setNavHeight] = useState(0);
@@ -33,7 +39,7 @@ const AboutSection = () => {
       <div
         className={cn(
           "h-full p-6 sm:p-8 md:p-10 lg:px-16",
-          "flex flex-col gap-2 md:gap-4",
+          "hidden md:flex flex-col gap-2 md:gap-4",
           "justify-center items-center",
         )}
       >
@@ -216,6 +222,197 @@ const AboutSection = () => {
           )}
         >
           <span className="text-foreground text-sm lg:text-lg">Scroll</span>
+
+          <ArrowDown className="text-secondary" size={24} />
+        </a>
+      </div>
+
+      {/* mobile view */}
+      <div
+        className={cn(
+          "h-full p-6 sm:p-8",
+          "flex md:hidden flex-col gap-2",
+          "justify-center items-center",
+        )}
+      >
+        {/* title */}
+        <h1 className="text-lg text-foreground font-bold">
+          About <span className="text-primary">Me</span>
+        </h1>
+
+        <div className="">
+          {/* information */}
+          <Accordion
+            type="single"
+            collapsible
+            defaultValue="who-am-i"
+            className="bg-card border-2 border-border p-4 rounded-2xl"
+          >
+            <AccordionItem
+              value="who-am-i"
+              className="flex-1 p-2 text-foreground"
+            >
+              <AccordionTrigger className="text-lg font-bold tracking-tight">
+                Who am I?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm">
+                {"Hello! I'm "}
+                <span className="text-secondary">Eger</span>
+                {", a "}
+                <span className="text-primary">dedicated student</span>
+                {" currently pursuing a degree in "}
+                <span className="text-secondary">Computer Engineering</span>
+                {". My passion lies in "}
+                <span className="text-accent">developing applications</span>
+                {" and "}
+                <span className="text-emerald-500">building tools</span>
+                {" that not only "}
+                <span className="text-cyan-500">simplify workflows</span>
+                {" but also "}
+                <span className="text-pink-500">
+                  enhance overall efficiency
+                </span>
+                {"—always with a commitment to maintaining "}
+                <span className="text-yellow-500">high quality</span>
+                {"."}
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="What do i like?"
+              className="flex-1 p-2 text-foreground"
+            >
+              <AccordionTrigger className="text-lg font-bold tracking-tight">
+                What do i like?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm">
+                <span>
+                  {"I thrive on "}
+                  <span className="text-primary">solving problems</span>
+                  {", "}
+                  <span className="text-secondary">
+                    experimenting with new technologies
+                  </span>
+                  {", and "}
+                  <span className="text-accent">continuously learning</span>
+                  to
+                  {"improve my craft. Whether it's "}
+                  <span className="text-emerald-500">
+                    automating repetitive tasks
+                  </span>
+                  {", "}
+                  <span className="text-cyan-500">
+                    optimizing existing processes
+                  </span>
+                  {", or "}
+                  <span className="text-pink-500">
+                    designing innovative solutions
+                  </span>
+                  {", I enjoy every step of the "}
+                  <span className="text-yellow-500">development journey</span>.
+                </span>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+
+          {/* technologies */}
+          <Accordion type="single">
+            <AccordionItem
+              value="programming-languages"
+              className="flex-1 w-full p-4 text-foreground"
+            >
+              <AccordionTrigger className="text-sm flex justify-start font-bold tracking-tight">
+                <FaPenNib size={24} />
+                <span>Programming Languages</span>
+              </AccordionTrigger>
+              <AccordionContent className="text-sm flex flex-wrap gap-2">
+                <Badge className="rounded-xl text-card font-semibold bg-green-500">
+                  Python
+                </Badge>
+                <Badge className="rounded-xl text-card font-semibold bg-yellow-400">
+                  JavaScript
+                </Badge>
+                <Badge className="rounded-xl text-card font-semibold bg-blue-500">
+                  Typescript
+                </Badge>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem
+              value="frameworks-and-tools"
+              className="flex-1 w-full p-4 text-foreground"
+            >
+              <AccordionTrigger className="text-sm flex justify-start font-bold tracking-tight">
+                <FaTools size={24} />
+                <span>Frameworks & Tools</span>
+              </AccordionTrigger>
+              <AccordionContent className="text-sm flex flex-wrap gap-4">
+                <Badge className="rounded-xl text-card font-semibold bg-cyan-500">
+                  React
+                </Badge>
+                <Badge className="rounded-xl text-card font-semibold bg-gray-900 dark:bg-gray-500">
+                  Next.js
+                </Badge>
+                <Badge className="rounded-xl text-card font-semibold bg-teal-500">
+                  FastAPI
+                </Badge>
+                <Badge className="rounded-xl text-card font-semibold bg-orange-600">
+                  Git
+                </Badge>
+                <Badge className="rounded-xl text-card font-semibold bg-yellow-500">
+                  Linux
+                </Badge>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem
+              value="databases"
+              className="flex-1 w-full p-4 text-foreground"
+            >
+              <AccordionTrigger className="text-sm flex justify-start font-bold tracking-tight">
+                <ImDatabase size={24} />
+                <span>Databases</span>
+              </AccordionTrigger>
+              <AccordionContent className="text-sm flex flex-wrap gap-4">
+                <Badge className="rounded-xl text-card font-semibold bg-blue-700">
+                  PostgreSQL
+                </Badge>
+                <Badge className="rounded-xl text-card font-semibold bg-cyan-600">
+                  SQLite
+                </Badge>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem
+              value="interests"
+              className="flex-1 w-full p-4 text-foreground"
+            >
+              <AccordionTrigger className="text-sm flex justify-start font-bold tracking-tight">
+                <MdInterests size={24} />
+                <span>Interests</span>
+              </AccordionTrigger>
+              <AccordionContent className="text-sm flex flex-wrap gap-4">
+                <Badge className="rounded-xl text-card font-semibold bg-pink-500">
+                  Automation
+                </Badge>
+                <Badge className="rounded-xl text-card font-semibold bg-amber-500">
+                  Productivity Tools
+                </Badge>
+                <Badge className="rounded-xl text-card font-semibold bg-purple-500">
+                  Full-Stack Development
+                </Badge>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+
+        <a
+          href="#projects"
+          className={cn(
+            "flex flex-col justify-center items-center",
+            "animate-bounce duration-300",
+          )}
+        >
+          <span className="text-foreground text-sm">Scroll</span>
 
           <ArrowDown className="text-secondary" size={24} />
         </a>
