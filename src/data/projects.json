@@ -34,7 +34,7 @@
     "tags": [
       "React",
       "Tailwindcss",
-      "CSS",
+      "Typescript",
       "Python",
       "PostgreSQL",
       "SQLAlchemy",
@@ -48,8 +48,17 @@
     "title": "Portfolio",
     "description": "An interactive website showcasing the projects I've built.",
     "image": "/projects/porfolio.png",
-    "tags": ["React", "Tailwindcss", "CSS"],
+    "tags": ["React", "Tailwindcss", "Typescript"],
     "demoUrl": "https://portfolio-itismemyselfandis-projects.vercel.app",
     "githubUrl": "https://github.com/ItIsMeMyselfAndI/portfolio.git"
+  },
+  {
+    "id": 6,
+    "title": "VIVID - Visually Intuitive and Interactive Datastructure",
+    "description": "A web-based application designed to make learning data structures engaging and hands-on.",
+    "image": "/projects/vivid-data-structure-simulator.png",
+    "tags": ["Next.js", "React", "Tailwindcss", "Typescript"],
+    "demoUrl": "https://vivid-rose.vercel.app/",
+    "githubUrl": "https://github.com/ItIsMeMyselfAndI/vivid.git"
   }
 ]
